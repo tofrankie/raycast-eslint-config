@@ -16,7 +16,7 @@ module.exports = [
       },
     },
   },
-  raycast.configs.recommended,
+  ...raycast.configs.recommended,
   ...packageSort,
   prettier,
 ];

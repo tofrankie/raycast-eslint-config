@@ -1,5 +1,4 @@
 const jsonc = require("eslint-plugin-jsonc");
-const jsoncParser = require("jsonc-eslint-parser");
 
 const commandOrder = [
   "name",
@@ -111,7 +110,10 @@ module.exports = [
       jsonc,
     },
     languageOptions: {
-      parser: jsoncParser,
+      parser: jsonc,
+      parserOptions: {
+        jsonSyntax: "JSON",
+      },
     },
     rules: {
       "jsonc/sort-array-values": [

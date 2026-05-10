@@ -22,5 +22,8 @@
     "eslint-plugin-jsonc": "^2.21.1",
     "globals": "^16.4.0",
     "typescript-eslint": "^8.59.2"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4"
   }
 }

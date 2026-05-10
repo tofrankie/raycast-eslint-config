@@ -5,10 +5,21 @@ const js = require("@eslint/js");
 const globals = require("globals");
 const packageSort = require("./sort");
 
+const GLOB_SRC = ["**/*.?([cm])[jt]s?(x)"];
+const GLOB_TS = ["**/*.?([cm])ts?(x)"];
+
 module.exports = [
-  js.configs.recommended,
-  ...typescript.configs.recommended,
+  { ignores: ["**/raycast-env.d.ts"] },
   {
+    ...js.configs.recommended,
+    files: GLOB_SRC,
+  },
+  ...typescript.configs.recommended.map((config) => ({
+    ...config,
+    files: config.files ?? GLOB_TS,
+  })),
+  {
+    files: GLOB_SRC,
     languageOptions: {
       ecmaVersion: 2022,
       globals: {
@@ -16,7 +27,13 @@ module.exports = [
       },
     },
   },
-  ...raycast.configs.recommended,
+  ...raycast.configs.recommended.map((config) => ({
+    ...config,
+    files: GLOB_TS,
+  })),
+  {
+    ...prettier,
+    files: GLOB_SRC,
+  },
   ...packageSort,
-  prettier,
 ];

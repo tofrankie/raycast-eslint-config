@@ -2,33 +2,33 @@ const jsonc = require("eslint-plugin-jsonc");
 
 const commandOrder = [
   "name",
+  "mode",
   "title",
   "subtitle",
-  "description",
   "icon",
-  "mode",
+  "description",
   "interval",
+  "disabledByDefault",
   "keywords",
   "arguments",
   "preferences",
-  "disabledByDefault",
 ];
 
 const preferenceOrder = [
   "name",
-  "title",
-  "description",
   "type",
   "required",
+  "title",
+  "label",
+  "description",
   "placeholder",
   "default",
-  "label",
   "data",
 ];
 
-const argumentOrder = ["name", "type", "placeholder", "required", "data"];
+const argumentOrder = ["name", "type", "required", "placeholder", "data"];
 
-const toolOrder = ["name", "title", "description", "icon"];
+const toolOrder = ["name", "title", "icon", "description"];
 
 const packageJsonOrder = [
   "$schema",
